@@ -1,4 +1,21 @@
 <h1>Curso Angular</h1>
-{{ getEdadNombre()  }}
-<ng-content select="p"></ng-content>
+<h3>Tutor: {{ name  }}</h3>
+<p>Mas Información </p>
+
+<p *ngIf="!isAvailable;else available">Lanzamiento: 25 Dic 2018</p>
+<ng-template #available>
+<span class="highlight">
+  Curso disponible
+</span>
+</ng-template>
+<div>
+<button   [disabled]="!isAvailable" [ngClass]="{active: isAvailable, shadow: !isAvailable}"
+type="button" name="button" value="inscribir">Inscribirse</button>
+</div>
+<!--
+[class.active]="true"
+[ngClass]="['active','shadow']"
+<ng-content select="p">
+</ng-content>
 <ng-content select="div"></ng-content>
+-->
